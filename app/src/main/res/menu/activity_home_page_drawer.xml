@@ -13,13 +13,13 @@
             android:icon="@drawable/ic_history_black_24dp"
             android:title="Transaction History" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/client_information"
+            android:icon="@drawable/ic_info_outline_black_24dp"
+            android:title="My Information" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/current_transaction_status"
+            android:icon="@drawable/ic_rss_feed_black_24dp"
+            android:title="Transaction Status" />
     </group>
 
     <item android:title="Personal">
