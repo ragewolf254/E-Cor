@@ -51,7 +51,7 @@
             tools:layout_editor_absoluteX="72dp"
             android:numStars="5"
             android:stepSize="1"
-            android:theme="@style/RatingBar"
+            android:theme=""
             tools:layout_editor_absoluteY="306dp" />
 
         <TextView
