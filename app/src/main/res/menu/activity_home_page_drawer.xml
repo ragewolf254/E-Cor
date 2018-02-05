@@ -13,10 +13,6 @@
             android:icon="@drawable/ic_history_black_24dp"
             android:title="Transaction History" />
         <item
-            android:id="@+id/client_information"
-            android:icon="@drawable/ic_info_outline_black_24dp"
-            android:title="My Information" />
-        <item
             android:id="@+id/current_transaction_status"
             android:icon="@drawable/ic_rss_feed_black_24dp"
             android:title="Transaction Status" />
@@ -24,6 +20,10 @@
 
     <item android:title="Personal">
         <menu>
+            <item
+                android:id="@+id/client_information"
+                android:icon="@drawable/ic_info_outline_black_24dp"
+                android:title="My Information" />
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_exit_to_app_black_24dp"

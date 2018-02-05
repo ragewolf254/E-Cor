@@ -6,13 +6,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toolbar;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class TransactionStatus extends Fragment {
-
+    private Toolbar toolbar;
 
     public TransactionStatus() {
         // Required empty public constructor
