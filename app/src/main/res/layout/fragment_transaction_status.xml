@@ -50,5 +50,37 @@
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="72dp"
             tools:layout_editor_absoluteY="306dp" />
+
+        <TextView
+            android:id="@+id/tagsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tags:"
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="383dp" />
+
+        <TextView
+            android:id="@+id/plannerTags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tag1, Tag2, Tag3. Tag4, Tag5"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="383dp" />
+
+        <TextView
+            android:id="@+id/eventStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ongoing"
+            tools:layout_editor_absoluteX="167dp"
+            tools:layout_editor_absoluteY="421dp" />
+
+        <TextView
+            android:id="@+id/statusLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Event status: "
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="421dp" />
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>
