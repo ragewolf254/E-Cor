@@ -110,7 +110,7 @@
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="0dp"
-            android:layout_height="51dp"
+            android:layout_height="50dp"
             android:layout_marginEnd="17dp"
             android:layout_marginStart="55dp"
             android:src="@drawable/ic_person_black_24dp"
@@ -151,7 +151,7 @@
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="0dp"
-            android:layout_height="51"
+            android:layout_height="51dp"
             android:src="@drawable/ic_contact_phone_black_24dp"
             app:layout_constraintBottom_toBottomOf="@+id/plannerContact"
             app:layout_constraintEnd_toEndOf="@+id/imageView7"
@@ -179,7 +179,7 @@
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="0dp"
-            android:layout_height="51"
+            android:layout_height="51dp"
             android:layout_marginEnd="15dp"
             android:layout_marginStart="57dp"
             android:src="@drawable/ic_rss_feed_black_24dp"
