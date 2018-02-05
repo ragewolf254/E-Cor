@@ -17,73 +17,123 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_person_black_24dp"
             tools:layout_editor_absoluteX="142dp"
-            tools:layout_editor_absoluteY="37dp" />
+            tools:layout_editor_absoluteY="31dp" />
 
         <TextView
             android:id="@+id/plannerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Test Name Face"
-            android:textSize="14sp"
-            tools:layout_editor_absoluteX="141dp"
-            tools:layout_editor_absoluteY="169dp" />
+            android:text="John Fucking Doe"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="151dp" />
 
         <TextView
             android:id="@+id/plannerAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Test Address"
-            tools:layout_editor_absoluteX="151dp"
+            android:text="My Fucking Address"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="123dp"
             tools:layout_editor_absoluteY="216dp" />
 
         <TextView
             android:id="@+id/plannerContact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Test Contact"
-            tools:layout_editor_absoluteX="152dp"
-            tools:layout_editor_absoluteY="261dp" />
+            android:text="Cool Contact Number"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="282dp" />
 
         <RatingBar
             android:id="@+id/plannerRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="72dp"
             android:numStars="5"
             android:stepSize="1"
             android:theme=""
-            tools:layout_editor_absoluteY="306dp" />
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="351dp" />
 
         <TextView
             android:id="@+id/tagsLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tags:"
-            tools:layout_editor_absoluteX="72dp"
-            tools:layout_editor_absoluteY="383dp" />
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="455dp" />
 
         <TextView
             android:id="@+id/plannerTags"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tag1, Tag2, Tag3. Tag4, Tag5"
-            tools:layout_editor_absoluteX="123dp"
-            tools:layout_editor_absoluteY="383dp" />
+            tools:layout_editor_absoluteX="114dp"
+            tools:layout_editor_absoluteY="455dp" />
 
         <TextView
             android:id="@+id/eventStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ongoing"
-            tools:layout_editor_absoluteX="167dp"
-            tools:layout_editor_absoluteY="421dp" />
+            tools:layout_editor_absoluteX="152dp"
+            tools:layout_editor_absoluteY="493dp" />
 
         <TextView
             android:id="@+id/statusLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Event status: "
-            tools:layout_editor_absoluteX="72dp"
-            tools:layout_editor_absoluteY="421dp" />
+            tools:layout_editor_absoluteX="57dp"
+            tools:layout_editor_absoluteY="493dp" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="51dp"
+            android:layout_height="51dp"
+            android:src="@drawable/ic_person_black_24dp"
+            tools:layout_editor_absoluteX="55dp"
+            tools:layout_editor_absoluteY="151dp" />
+
+        <TextView
+            android:id="@+id/nameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Planner Name"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="183dp" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_location_on_black_24dp"
+            tools:layout_editor_absoluteX="55dp"
+            tools:layout_editor_absoluteY="216dp" />
+
+        <TextView
+            android:id="@+id/addressLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Planner Address"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="246dp" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="51"
+            android:layout_height="51"
+            android:src="@drawable/ic_contact_phone_black_24dp"
+            tools:layout_editor_absoluteX="57dp"
+            tools:layout_editor_absoluteY="282dp" />
+
+        <TextView
+            android:id="@+id/contactNumberLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Number"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="314dp" />
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>
