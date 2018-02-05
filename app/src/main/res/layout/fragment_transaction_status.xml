@@ -25,7 +25,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="John Fucking Doe"
+                    android:text="John Cool Doe"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/nameLabel"
                     app:layout_constraintTop_toBottomOf="@+id/imageView3" />
@@ -152,7 +152,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
-                    android:text="My Fucking Address"
+                    android:text="My Cool Address"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/nameLabel"
                     app:layout_constraintTop_toBottomOf="@+id/nameLabel" />
