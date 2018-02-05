@@ -49,6 +49,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="72dp"
+            android:numStars="5"
+            android:stepSize="1"
+            android:theme="@style/RatingBar"
             tools:layout_editor_absoluteY="306dp" />
 
         <TextView
