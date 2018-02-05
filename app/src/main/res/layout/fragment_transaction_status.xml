@@ -1,13 +1,54 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ragew.creativesolutions.e_cor.TransactionStatus">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_person_black_24dp"
+            tools:layout_editor_absoluteX="142dp"
+            tools:layout_editor_absoluteY="37dp" />
+
+        <TextView
+            android:id="@+id/plannerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test Name Face"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="141dp"
+            tools:layout_editor_absoluteY="169dp" />
+
+        <TextView
+            android:id="@+id/plannerAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test Address"
+            tools:layout_editor_absoluteX="151dp"
+            tools:layout_editor_absoluteY="216dp" />
+
+        <TextView
+            android:id="@+id/plannerContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test Contact"
+            tools:layout_editor_absoluteX="152dp"
+            tools:layout_editor_absoluteY="261dp" />
+
+        <RatingBar
+            android:id="@+id/plannerRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="306dp" />
+    </android.support.constraint.ConstraintLayout>
 </FrameLayout>

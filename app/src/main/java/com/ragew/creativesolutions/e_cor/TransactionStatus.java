@@ -23,7 +23,10 @@ public class TransactionStatus extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_transaction_status, container, false);
+        View view = inflater.inflate(R.layout.fragment_transaction_status, container, false);
+
+        return view;
+
     }
 
 }
