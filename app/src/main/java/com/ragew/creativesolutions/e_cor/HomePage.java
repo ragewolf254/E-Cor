@@ -86,8 +86,11 @@ public class HomePage extends AppCompatActivity
             TransactionHistory transactionHistory = new TransactionHistory();
             android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().add(R.id.baseContent,transactionHistory).commit();
-        } else if (id == R.id.current_transaction_status) {
 
+        } else if (id == R.id.current_transaction_status) {
+            TransactionStatus transactionStatus = new TransactionStatus();
+            android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().add(R.id.baseContent,transactionStatus).commit();
 
         } else if (id == R.id.client_information) {
 
