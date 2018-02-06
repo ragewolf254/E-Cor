@@ -13,190 +13,69 @@
         android:layout_height="match_parent">
 
         <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <ImageView
+                    android:id="@+id/plannerPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_person_black_24dp"
+                    tools:layout_editor_absoluteX="142dp"
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <ImageView
+                    android:id="@+id/nameIcon"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/ic_person_black_24dp"
+                    tools:layout_editor_absoluteX="52dp"
+                    tools:layout_editor_absoluteY="135dp" />
+
+                <ImageView
+                    android:id="@+id/addressIcon"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/ic_location_on_black_24dp"
+                    tools:layout_editor_absoluteX="52dp"
+                    tools:layout_editor_absoluteY="213dp" />
+
+                <ImageView
+                    android:id="@+id/contactIcon"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/ic_person_black_24dp"
+                    tools:layout_editor_absoluteX="52dp"
+                    tools:layout_editor_absoluteY="294dp" />
+
                 <TextView
                     android:id="@+id/plannerName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:text="John Cool Doe"
                     android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="@+id/nameLabel"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-                <TextView
-                    android:id="@+id/eventStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="Ongoing"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/statusLabel"
-                    app:layout_constraintStart_toStartOf="@+id/statusLabel" />
-
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="0dp"
-                    android:layout_height="51dp"
-                    android:src="@drawable/ic_contact_phone_black_24dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/plannerContact"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView7"
-                    app:layout_constraintStart_toStartOf="@+id/imageView7"
-                    app:layout_constraintTop_toBottomOf="@+id/plannerContact" />
-
-                <TextView
-                    android:id="@+id/tagsLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="18dp"
-                    android:layout_marginStart="15dp"
-                    android:text="Tags"
-                    app:layout_constraintBottom_toTopOf="@+id/eventStatus"
-                    app:layout_constraintStart_toEndOf="@+id/imageView7" />
-
-                <TextView
-                    android:id="@+id/plannerContact"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="17dp"
-                    android:text="Cool Contact Number"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView6"
-                    app:layout_constraintTop_toBottomOf="@+id/addressLabel" />
+                    tools:layout_editor_absoluteX="130dp"
+                    tools:layout_editor_absoluteY="135dp" />
 
                 <TextView
                     android:id="@+id/nameLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="174dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Planner Name"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView4"
-                    app:layout_constraintTop_toBottomOf="@+id/plannerName" />
+                    android:text="Name"
+                    tools:layout_editor_absoluteX="130dp"
+                    tools:layout_editor_absoluteY="171dp" />
 
-                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_location_on_black_24dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/plannerAddress"
-                    app:layout_constraintStart_toStartOf="@+id/imageView4"
-                    app:layout_constraintTop_toBottomOf="@+id/plannerAddress" />
-
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginEnd="17dp"
-                    android:layout_marginStart="55dp"
-                    android:src="@drawable/ic_person_black_24dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/plannerName"
-                    app:layout_constraintEnd_toStartOf="@+id/nameLabel"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/plannerName" />
-
-                <RatingBar
-                    android:id="@+id/plannerRating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="52dp"
-                    android:layout_marginBottom="166dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="166dp"
-                    android:numStars="5"
-                    android:stepSize="1"
-                    android:theme="@style/RatingBar"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/imageView7"
-                    app:layout_constraintTop_toTopOf="@+id/nameLabel" />
-
-                <TextView
-                    android:id="@+id/contactNumberLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Contact Number"
-                    app:layout_constraintStart_toStartOf="@+id/plannerContact"
-                    app:layout_constraintTop_toBottomOf="@+id/plannerContact" />
-
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_loyalty_black_24dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/plannerTags"
-                    app:layout_constraintStart_toStartOf="@+id/imageView8"
-                    app:layout_constraintTop_toBottomOf="@+id/plannerTags" />
-
-                <ImageView
-                    android:id="@+id/imageView8"
-                    android:layout_width="0dp"
-                    android:layout_height="51dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginStart="57dp"
-                    android:src="@drawable/ic_rss_feed_black_24dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/eventStatus"
-                    app:layout_constraintEnd_toStartOf="@+id/statusLabel"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/eventStatus" />
-
-                <TextView
-                    android:id="@+id/plannerAddress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:text="My Cool Address"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="@+id/nameLabel"
-                    app:layout_constraintTop_toBottomOf="@+id/nameLabel" />
-
-                <TextView
-                    android:id="@+id/statusLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="32dp"
-                    android:layout_marginEnd="180dp"
-                    android:text="Event status"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView8" />
-
-                <TextView
-                    android:id="@+id/plannerTags"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="Tag1, Tag2, Tag3."
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/tagsLabel"
-                    app:layout_constraintStart_toStartOf="@+id/tagsLabel" />
-
-                <TextView
-                    android:id="@+id/addressLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="Planner Address"
-                    app:layout_constraintStart_toStartOf="@+id/plannerAddress"
-                    app:layout_constraintTop_toBottomOf="@+id/plannerAddress" />
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="19dp"
-                    android:layout_marginTop="31dp"
-                    android:src="@drawable/ic_person_black_24dp"
-                    app:layout_constraintStart_toStartOf="@+id/plannerName"
-                    app:layout_constraintTop_toTopOf="parent" />
             </android.support.constraint.ConstraintLayout>
+
         </ScrollView>
 
     </android.support.constraint.ConstraintLayout>
