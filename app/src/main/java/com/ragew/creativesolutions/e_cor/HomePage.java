@@ -83,8 +83,11 @@ public class HomePage extends AppCompatActivity
         if (id == R.id.home) {
             // Handle the camera action
         } else if (id == R.id.transaction_history) {
-
+            TransactionHistory transactionHistory = new TransactionHistory();
+            android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().add(R.id.baseContent,transactionHistory).commit();
         } else if (id == R.id.current_transaction_status) {
+
 
         } else if (id == R.id.client_information) {
 
