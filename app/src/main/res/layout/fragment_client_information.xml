@@ -1,13 +1,127 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ragew.creativesolutions.e_cor.ClientInformation">
+    android:background="@drawable/gradient"
+    tools:context="com.ragew.creativesolutions.e_cor.TransactionStatus">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/clientPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ic_person_black_24dp"
+            app:layout_constraintStart_toStartOf="@+id/clientName"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/nameIcon"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="52dp"
+            android:src="@drawable/ic_person_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/clientName"
+            app:layout_constraintEnd_toStartOf="@+id/nameLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clientName" />
+
+        <ImageView
+            android:id="@+id/addressIcon"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="52dp"
+            android:src="@drawable/ic_location_on_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/clientAddress"
+            app:layout_constraintEnd_toStartOf="@+id/addressLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clientAddress" />
+
+        <ImageView
+            android:id="@+id/contactIcon"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="52dp"
+            android:src="@drawable/ic_contact_phone_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/clientContact"
+            app:layout_constraintEnd_toStartOf="@+id/contactLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clientContact" />
+
+        <TextView
+            android:id="@+id/clientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Ralph Adrian Buen"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/nameLabel"
+            app:layout_constraintTop_toBottomOf="@+id/clientPhoto" />
+
+        <TextView
+            android:id="@+id/clientAddress"
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="Cool Address"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameLabel" />
+
+        <TextView
+            android:id="@+id/addressLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="205dp"
+            android:layout_marginTop="9dp"
+            android:text="Address"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/addressIcon"
+            app:layout_constraintTop_toBottomOf="@+id/clientAddress" />
+
+        <TextView
+            android:id="@+id/nameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="220dp"
+            android:layout_marginTop="9dp"
+            android:text="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/nameIcon"
+            app:layout_constraintTop_toBottomOf="@+id/clientName" />
+
+        <TextView
+            android:id="@+id/clientContact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
+            android:text="09178273910"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/clientAddress"
+            app:layout_constraintStart_toStartOf="@+id/contactLabel"
+            app:layout_constraintTop_toBottomOf="@+id/addressLabel" />
+
+        <TextView
+            android:id="@+id/contactLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="207dp"
+            android:layout_marginTop="9dp"
+            android:text="Contact"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/contactIcon"
+            app:layout_constraintTop_toBottomOf="@+id/clientContact" />
+
+    </android.support.constraint.ConstraintLayout>
 </FrameLayout>
