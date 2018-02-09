@@ -145,7 +145,9 @@ public class HomePage extends AppCompatActivity
             manager.beginTransaction().add(R.id.baseContent,transactionStatus).commit();
 
         } else if (id == R.id.client_information) {
-
+            ClientInformation clientInformation = new ClientInformation();
+            android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().add(R.id.baseContent,clientInformation).commit();
 
         } else if (id == R.id.nav_logout) {
             Intent logoutIntent = new Intent(HomePage.this, LoginPage.class);
