@@ -22,6 +22,8 @@ import android.widget.Toast;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -34,6 +36,10 @@ public class HomePage extends AppCompatActivity
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMM - yyyy", Locale.getDefault());
     CompactCalendarView compactCalendarView;
     private ImageView m_imageView;
+    private TextView userName;
+    private TextView userEmail;
+    private String fname = "Ralph Adrian",mname = "",lname = "Buen";
+    private String email = "ralphadrianbuen@gmail.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +97,12 @@ public class HomePage extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        userName = navigationView.findViewById(R.id.userName);
+        userEmail = navigationView.findViewById(R.id.userEmail);
+
+        userName.setText(fname.substring(0,1).toUpperCase() + fname.substring(1) + " " + mname.substring(0,1).toUpperCase()+". " + lname.substring(0,1).toUpperCase() + lname.substring(1));
+        userEmail.setText(email);
 
     }
 

@@ -13,7 +13,7 @@ import android.widget.Toolbar;
  * A simple {@link Fragment} subclass.
  */
 public class TransactionStatus extends Fragment {
-    private Toolbar toolbar;
+
 
     public TransactionStatus() {
         // Required empty public constructor
