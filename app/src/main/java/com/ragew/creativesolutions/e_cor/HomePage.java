@@ -146,6 +146,7 @@ public class HomePage extends AppCompatActivity
 
         } else if (id == R.id.client_information) {
 
+
         } else if (id == R.id.nav_logout) {
             Intent logoutIntent = new Intent(HomePage.this, LoginPage.class);
             startActivity(logoutIntent);
