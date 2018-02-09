@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -13,7 +14,7 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class ClientInformation extends Fragment {
-
+    private ImageView clientPhoto;
     private TextView clientName;
     private TextView clientAddress;
     private TextView clientContact;
@@ -29,6 +30,7 @@ public class ClientInformation extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_client_information, container, false);
         //get all the client infromation fields
+        clientPhoto = view.findViewById(R.id.clientPhoto);
         clientName = view.findViewById(R.id.clientName);
         clientAddress= view.findViewById(R.id.clientAddress);
         clientContact= view.findViewById(R.id.clientContact);
