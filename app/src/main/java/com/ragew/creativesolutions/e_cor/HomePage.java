@@ -101,9 +101,6 @@ public class HomePage extends AppCompatActivity
         userName = navigationView.findViewById(R.id.userName);
         userEmail = navigationView.findViewById(R.id.userEmail);
 
-        userName.setText(fname.substring(0,1).toUpperCase() + fname.substring(1) + " " + mname.substring(0,1).toUpperCase()+". " + lname.substring(0,1).toUpperCase() + lname.substring(1));
-        userEmail.setText(email);
-
     }
 
     @Override
