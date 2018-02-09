@@ -4,4 +4,14 @@
     <color name="colorPrimaryDark">#0097A7</color>
     <color name="colorAccent">#03A9F4</color>
     <color name="colorText">#FFFFFF</color>
+    <!--Color-->
+    <color name="colorBackground">#fafafa</color>
+    <color name="colorDarkText">#8b8b8b</color>
+    <color name="colorLightText">#fafafa</color>
+    <!--CALENDAR COLORS-->
+    <color name="colorPickerCalendar">#FF4081</color>
+    <color name="colorPrimaryCalendar">#b3ffb3</color>
+    <color name="colorPrimaryDarkCalendar">#ffffb3</color>
+    <color name="colorDarkTextCalendar">#000000</color>
+
 </resources>
