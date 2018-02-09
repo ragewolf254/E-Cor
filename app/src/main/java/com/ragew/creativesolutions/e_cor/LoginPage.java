@@ -39,7 +39,6 @@ public class LoginPage extends AppCompatActivity {
                 if (username.equals("test") && password.equals("test")){
                     homePage[0] = new Intent(LoginPage.this, HomePage.class);
                     startActivity(homePage[0]);
-                    finish();
                 } else {
                     Snackbar.make(m_imageView, "Login Failed", Snackbar.LENGTH_LONG).show();
                 }

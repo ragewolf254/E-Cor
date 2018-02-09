@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -50,19 +51,16 @@ public class HomePage extends AppCompatActivity
         compactCalendarView.setFirstDayOfWeek(Calendar.MONDAY);
         compactCalendarView.setUseThreeLetterAbbreviation(true);
 
-        final Event testEvent = new Event(Color.RED,1518153337000L, "This is the date of your event!");
+        final Event testEvent = new Event(Color.RED,1518227261000L, "Wedding Day!!!");
         compactCalendarView.addEvent(testEvent);
+        final Event testEvent2 = new Event(Color.BLUE,1518256061000L, "Birth Day!!!");
+        compactCalendarView.addEvent(testEvent2);
 
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
-            String dataContainer;
             @Override
             public void onDayClick(Date dateClicked) {
                 List<Event> events = compactCalendarView.getEvents(dateClicked);
-                for (Event x : events){
-                    x.getData();
-                    dataContainer = x.toString();
-                }
-                Toast.makeText(HomePage.this,dataContainer,Toast.LENGTH_LONG).show();
+                Toast.makeText(HomePage.this,"Day was clicked: " + dateClicked + " with events " + events,Toast.LENGTH_LONG).show();
             }
 
             @Override
