@@ -19,7 +19,6 @@ public class LoginPage extends AppCompatActivity {
     private ImageView m_imageView;
     private String username;
     private String password;
-    private Intent[] homePage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +28,9 @@ public class LoginPage extends AppCompatActivity {
         m_password = findViewById(R.id.passwordTextField);
         m_loginButton = findViewById(R.id.loginButton);
         m_imageView = findViewById(R.id.parentLogo);
-        homePage = new Intent[1];
+        final Intent homePage = new Intent(LoginPage.this, HomePage.class);
+        Snackbar.make(m_imageView, "Logout Success", Snackbar.LENGTH_LONG).show();
+
 
         m_loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,11 +38,11 @@ public class LoginPage extends AppCompatActivity {
                 username = m_username.getText().toString();
                 password = m_password.getText().toString();
                 if (username.equals("test") && password.equals("test")){
-                    homePage[0] = new Intent(LoginPage.this, HomePage.class);
-                    startActivity(homePage[0]);
+                    startActivity(homePage);
                 } else {
                     Snackbar.make(m_imageView, "Login Failed", Snackbar.LENGTH_LONG).show();
                 }
+//                Snackbar.make(m_imageView, "Logout Success", Snackbar.LENGTH_LONG).show();
             }
         });
 

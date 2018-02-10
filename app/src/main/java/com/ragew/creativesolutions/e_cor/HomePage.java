@@ -38,7 +38,7 @@ public class HomePage extends AppCompatActivity
     private ImageView m_imageView;
     private TextView userName;
     private TextView userEmail;
-    private String fname = "Ralph Adrian",mname = "",lname = "Buen";
+    private String fname = "Ralph Adrian", mname = "",lname = "Buen";
     private String email = "ralphadrianbuen@gmail.com";
 
     @Override
@@ -56,6 +56,7 @@ public class HomePage extends AppCompatActivity
         compactCalendarView = findViewById(R.id.compactcalendar_view);
         compactCalendarView.setFirstDayOfWeek(Calendar.MONDAY);
         compactCalendarView.setUseThreeLetterAbbreviation(true);
+        m_imageView = findViewById(R.id.parentLogo);
 
         final Event testEvent = new Event(Color.RED,1518227261000L, "Wedding Day!!!");
         compactCalendarView.addEvent(testEvent);
@@ -110,6 +111,7 @@ public class HomePage extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            getFragmentManager().popBackStack();
         }
     }
 
@@ -140,29 +142,28 @@ public class HomePage extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        getFragmentManager().popBackStackImmediate();
         if (id == R.id.home) {
             // Handle the camera action
         } else if (id == R.id.transaction_history) {
             TransactionHistory transactionHistory = new TransactionHistory();
             android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().add(R.id.baseContent,transactionHistory).commit();
-
+            manager.beginTransaction().replace(R.id.baseContent,transactionHistory).commit();
+            getFragmentManager().popBackStackImmediate();
         } else if (id == R.id.current_transaction_status) {
             TransactionStatus transactionStatus = new TransactionStatus();
             android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().add(R.id.baseContent,transactionStatus).commit();
-
+            manager.beginTransaction().replace(R.id.baseContent,transactionStatus).commit();
+            getFragmentManager().popBackStackImmediate();
         } else if (id == R.id.client_information) {
             ClientInformation clientInformation = new ClientInformation();
             android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().add(R.id.baseContent,clientInformation).commit();
-
+            manager.beginTransaction().replace(R.id.baseContent,clientInformation).commit();
+            getFragmentManager().popBackStackImmediate();
         } else if (id == R.id.nav_logout) {
             Intent logoutIntent = new Intent(HomePage.this, LoginPage.class);
             startActivity(logoutIntent);
             finish();
-            Snackbar.make(m_imageView, "Logout Successful", Snackbar.LENGTH_LONG).show();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
