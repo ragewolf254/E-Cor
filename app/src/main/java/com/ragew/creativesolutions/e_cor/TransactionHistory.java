@@ -32,7 +32,7 @@ public class TransactionHistory extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_transaction_history, container, false);
         history_listView = view.findViewById(R.id.historyListView);
-        historyArrayList = new ArrayList<String>();
+        historyArrayList = new ArrayList<>();
         historyArrayList.add("01/12/99");
         historyArrayList.add("01/13/99");
         historyArrayList.add("Some date");
