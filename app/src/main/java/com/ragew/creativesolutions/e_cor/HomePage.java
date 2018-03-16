@@ -62,6 +62,7 @@ public class HomePage extends AppCompatActivity
     private String clientAddress;
     private String eventName;
     private String isActive;
+    private Integer transactionLog;
 
     private String clientFullname;
 
@@ -70,6 +71,9 @@ public class HomePage extends AppCompatActivity
 
     //Transaction Status
     Bundle transactionStatusBundle = new Bundle();
+
+    //Transaction History
+    Bundle transactionHistoryBundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,6 +124,8 @@ public class HomePage extends AppCompatActivity
             clientContactNumber = loginValues.getString("clientContactNumber");
             clientAddress = loginValues.getString("clientAddress");
             eventName = loginValues.getString("eventTitle");
+            transactionLog = loginValues.getInt("transactionEntry");
+
         } else {
             //Toast.makeText(HomePage.this,"Tangina wala akong value",Toast.LENGTH_LONG).show();
         }
@@ -145,6 +151,9 @@ public class HomePage extends AppCompatActivity
         transactionStatusBundle.putString("plannerAddress",plannerAddress);
         transactionStatusBundle.putString("plannerContact",plannerContactNumber);
         transactionStatusBundle.putString("eventStatus",isActive);
+
+        //History
+        transactionHistoryBundle.putString("date",String.valueOf(transactionLog));
 
         //Calendar
 
@@ -222,6 +231,7 @@ public class HomePage extends AppCompatActivity
         } else if (id == R.id.transaction_history) {
             TransactionHistory transactionHistory = new TransactionHistory();
             android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
+            transactionHistory.setArguments(transactionHistoryBundle);
             manager.beginTransaction().replace(R.id.baseContent,transactionHistory).commit();
             getFragmentManager().popBackStackImmediate();
         } else if (id == R.id.current_transaction_status) {

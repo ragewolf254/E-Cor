@@ -41,6 +41,7 @@ public class LoginPage extends AppCompatActivity implements SuperTask.TaskListen
     private String clientAddress;
     private String clientID;
     private String eventName;
+    private Integer transactionLog;
 
 
     @Override
@@ -106,6 +107,7 @@ public class LoginPage extends AppCompatActivity implements SuperTask.TaskListen
                     clientAddress = m_userObject.getString("client_address");
                     clientContactNumber = m_userObject.getString("client_contact_no");
                     eventName = m_userObject.getString("schedule_title");
+                    transactionLog = m_userObject.getInt("transaction_added_at");
 
                     //Planner
                     plannerFirstName = m_userObject.getString("event_planner_firstname");
@@ -131,6 +133,7 @@ public class LoginPage extends AppCompatActivity implements SuperTask.TaskListen
                     homePage.putExtra("clientContactNumber",clientContactNumber);
                     homePage.putExtra("clientAddress",clientAddress);
                     homePage.putExtra("eventTitle", eventName);
+                    homePage.putExtra("transactionEntry",transactionLog);
                     //Planner
                     homePage.putExtra("event_planner_firstname", plannerFirstName);
                     homePage.putExtra("event_planner_lastname", plannerLastName);
