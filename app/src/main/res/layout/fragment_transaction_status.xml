@@ -84,10 +84,11 @@
             android:id="@+id/plannerAddress"
             android:layout_width="127dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="24dp"
             android:text="Cool Address"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.446"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nameLabel" />
 
@@ -139,11 +140,12 @@
             android:id="@+id/eventStatus"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="9dp"
+            android:layout_marginBottom="8dp"
             android:text="On Going"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/statusLabel"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.448"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView

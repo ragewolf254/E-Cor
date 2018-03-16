@@ -43,11 +43,14 @@ public class HomePage extends AppCompatActivity
     private ImageView m_imageView;
     private TextView userNameTV;
     private TextView userEmailTV;
-    private String firstname = "";
-    private String lastname = "";
-    private String fullname = "";
-    private String email = "";
+    private String firstname;
+    private String lastname;
+    private String fullname;
+    private String email;
+    private String contactNumber;
+    private String address;
 
+    Bundle informationBundle = new Bundle();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,20 +117,24 @@ public class HomePage extends AppCompatActivity
             firstname = loginValues.getString("firstName");
             lastname = loginValues.getString("lastName");
             email = loginValues.getString("email");
+            contactNumber = loginValues.getString("contact");
+            address = loginValues.getString("address");
         } else {
-            Toast.makeText(HomePage.this,"Tangina wala akong value",Toast.LENGTH_LONG).show();
+            //Toast.makeText(HomePage.this,"Tangina wala akong value",Toast.LENGTH_LONG).show();
         }
 
         userNameTV = headerView.findViewById(R.id.userName);
         userEmailTV = headerView.findViewById(R.id.userEmail);
 
         //Assign the name and email
-        fullname = firstname.toString() + " " + lastname.toString();
+        fullname = firstname + " " + lastname;
 
-        userNameTV.setText(fullname.toString());
-        userEmailTV.setText(email.toString());
+        userNameTV.setText(fullname);
+        userEmailTV.setText(email);
 
-
+        informationBundle.putString("clientName",fullname);
+        informationBundle.putString("contactNumber",contactNumber);
+        informationBundle.putString("address",address);
 
     }
 
@@ -185,6 +192,7 @@ public class HomePage extends AppCompatActivity
         } else if (id == R.id.client_information) {
             ClientInformation clientInformation = new ClientInformation();
             android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
+            clientInformation.setArguments(informationBundle);
             manager.beginTransaction().replace(R.id.baseContent,clientInformation).commit();
             getFragmentManager().popBackStackImmediate();
         } else if (id == R.id.nav_logout) {

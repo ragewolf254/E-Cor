@@ -71,6 +71,7 @@ public class LoginPage extends AppCompatActivity implements SuperTask.TaskListen
                     boolean isSuccess = m_userObject.getBoolean("success");
                     if (isSuccess == true){
                         //Toast.makeText(LoginPage.this, "I'm Triggered",Toast.LENGTH_LONG).show();
+                        startActivity(homePage);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -80,13 +81,13 @@ public class LoginPage extends AppCompatActivity implements SuperTask.TaskListen
             case "names":{
                 try {
                     JSONObject m_userObject = new JSONObject(dataDetails);
-                    Toast.makeText(LoginPage.this, m_userObject.toString(),Toast.LENGTH_LONG).show();
+                    //Toast.makeText(LoginPage.this, m_userObject.toString(),Toast.LENGTH_LONG).show();
                     firstName = m_userObject.getString("client_firstname");
                     lastName = m_userObject.getString("client_lastname");
                     email = m_userObject.getString("client_email");
                     contactNumber = m_userObject.getString("client_contact_no");
                     clientAddress = m_userObject.getString("client_address");
-                    //Toast.makeText(LoginPage.this, firstName,Toast.LENGTH_LONG).show();
+                    //Toast.makeText(LoginPage.this, clientAddress,Toast.LENGTH_LONG).show();
                     //Toast.makeText(LoginPage.this, lastName,Toast.LENGTH_LONG).show();
                     //Toast.makeText(LoginPage.this, email,Toast.LENGTH_LONG).show();
                     homePage.putExtra("firstName", firstName);
