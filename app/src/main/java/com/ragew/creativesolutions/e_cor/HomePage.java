@@ -1,5 +1,6 @@
 package com.ragew.creativesolutions.e_cor;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -21,7 +22,11 @@ import android.widget.Toast;
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
+import com.ragew.creativesolutions.e_cor.Utils.SuperTask;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
@@ -31,15 +36,17 @@ import java.util.List;
 import java.util.Locale;
 
 public class HomePage extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SuperTask.TaskListener {
 
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMM - yyyy", Locale.getDefault());
     CompactCalendarView compactCalendarView;
     private ImageView m_imageView;
-    private TextView userName;
-    private TextView userEmail;
-    private String fname = "Ralph Adrian", mname = "",lname = "Buen";
-    private String email = "ralphadrianbuen@gmail.com";
+    private TextView userNameTV;
+    private TextView userEmailTV;
+    private String firstname = "";
+    private String lastname = "";
+    private String fullname = "";
+    private String email = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,8 +106,28 @@ public class HomePage extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        userName = navigationView.findViewById(R.id.userName);
-        userEmail = navigationView.findViewById(R.id.userEmail);
+        View headerView = navigationView.getHeaderView(0);
+
+        //Get Intent Values
+        Bundle loginValues = getIntent().getExtras();
+        if (loginValues != null){
+            firstname = loginValues.getString("firstName");
+            lastname = loginValues.getString("lastName");
+            email = loginValues.getString("email");
+        } else {
+            Toast.makeText(HomePage.this,"Tangina wala akong value",Toast.LENGTH_LONG).show();
+        }
+
+        userNameTV = headerView.findViewById(R.id.userName);
+        userEmailTV = headerView.findViewById(R.id.userEmail);
+
+        //Assign the name and email
+        fullname = firstname.toString() + " " + lastname.toString();
+
+        userNameTV.setText(fullname.toString());
+        userEmailTV.setText(email.toString());
+
+
 
     }
 
@@ -169,5 +196,31 @@ public class HomePage extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onTaskRespond(String id, String json) {
+        String testString = json;
+        switch (id) {
+            case "names": {
+                try {
+                    JSONObject m_nameObject = new JSONObject(testString);
+                    Log.d("User",m_nameObject.toString());
+                    //Toast.makeText(HomePage.this, m_nameObject.toString(), Toast.LENGTH_LONG).show();
+                }catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override
+    public ContentValues setRequestValues(String id, ContentValues contentValues) {
+        switch (id){
+            case "names":{
+                contentValues.put("client_id","");
+            }
+        }
+        return contentValues;
     }
 }
