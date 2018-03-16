@@ -13,4 +13,5 @@ public final class TaskConfig {
     //192.168.1.18
     public static final String LOGIN_URL = BASE_URL + "validate_user";
     public static final String CLIENT_URL = BASE_URL + "getJson_client";
+    public static final String PLANNER_URL = BASE_URL + "getJson_planner";
 }

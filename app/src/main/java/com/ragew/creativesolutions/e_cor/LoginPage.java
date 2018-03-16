@@ -24,11 +24,25 @@ public class LoginPage extends AppCompatActivity implements SuperTask.TaskListen
     private ImageView m_imageView;
     private String username;
     private String password;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String contactNumber;
+
+    //Event Planner
+    private String plannerFirstName;
+    private String plannerLastName;
+    private String plannerEmail;
+    private String plannerContactNumber;
+    private String plannerAddress;
+    private String isActive;
+    private Integer transactionFinish;
+    //Client
+    private String clientFirstName;
+    private String clientLastName;
+    private String clientEmail;
+    private String clientContactNumber;
     private String clientAddress;
+    private String clientID;
+    private String eventName;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +65,7 @@ public class LoginPage extends AppCompatActivity implements SuperTask.TaskListen
                 // call on button click
                 SuperTask.execute(LoginPage.this,"login", TaskConfig.LOGIN_URL);
                 SuperTask.execute(LoginPage.this,"names",TaskConfig.CLIENT_URL);
+                SuperTask.execute(LoginPage.this,"planners", TaskConfig.PLANNER_URL);
             }
         });
 
@@ -71,7 +86,7 @@ public class LoginPage extends AppCompatActivity implements SuperTask.TaskListen
                     boolean isSuccess = m_userObject.getBoolean("success");
                     if (isSuccess == true){
                         //Toast.makeText(LoginPage.this, "I'm Triggered",Toast.LENGTH_LONG).show();
-                        startActivity(homePage);
+                        //startActivity(homePage);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -82,7 +97,25 @@ public class LoginPage extends AppCompatActivity implements SuperTask.TaskListen
                 try {
                     JSONObject m_userObject = new JSONObject(dataDetails);
                     //Toast.makeText(LoginPage.this, m_userObject.toString(),Toast.LENGTH_LONG).show();
-                    firstName = m_userObject.getString("client_firstname");
+                    Log.d("All the info", m_userObject.toString());
+                    //Client
+                    clientID = m_userObject.getString("client_id");
+                    clientFirstName = m_userObject.getString("client_firstname");
+                    clientLastName = m_userObject.getString("client_lastname");
+                    clientEmail = m_userObject.getString("client_email");
+                    clientAddress = m_userObject.getString("client_address");
+                    clientContactNumber = m_userObject.getString("client_contact_no");
+                    eventName = m_userObject.getString("schedule_title");
+
+                    //Planner
+                    plannerFirstName = m_userObject.getString("event_planner_firstname");
+                    plannerLastName = m_userObject.getString("event_planner_lastname");
+                    plannerEmail = m_userObject.getString("event_planner_email");
+                    plannerAddress = m_userObject.getString("event_planner_address");
+                    plannerContactNumber = m_userObject.getString("event_planner_contact_no");
+                    isActive = m_userObject.getString("transaction_isActive");
+                    transactionFinish = m_userObject.getInt("schedule_enddate");
+                    /*firstName = m_userObject.getString("client_firstname");
                     lastName = m_userObject.getString("client_lastname");
                     email = m_userObject.getString("client_email");
                     contactNumber = m_userObject.getString("client_contact_no");
@@ -90,15 +123,27 @@ public class LoginPage extends AppCompatActivity implements SuperTask.TaskListen
                     //Toast.makeText(LoginPage.this, clientAddress,Toast.LENGTH_LONG).show();
                     //Toast.makeText(LoginPage.this, lastName,Toast.LENGTH_LONG).show();
                     //Toast.makeText(LoginPage.this, email,Toast.LENGTH_LONG).show();
-                    homePage.putExtra("firstName", firstName);
-                    homePage.putExtra("lastName", lastName);
-                    homePage.putExtra("email", email);
-                    homePage.putExtra("contact",contactNumber);
-                    homePage.putExtra("address",clientAddress);
+                    */
+                    //Client
+                    homePage.putExtra("clientFirstName", clientFirstName);
+                    homePage.putExtra("clientLastName", clientLastName);
+                    homePage.putExtra("clientEmail", clientEmail);
+                    homePage.putExtra("clientContactNumber",clientContactNumber);
+                    homePage.putExtra("clientAddress",clientAddress);
+                    homePage.putExtra("eventTitle", eventName);
+                    //Planner
+                    homePage.putExtra("event_planner_firstname", plannerFirstName);
+                    homePage.putExtra("event_planner_lastname", plannerLastName);
+                    homePage.putExtra("event_planner_email", plannerEmail);
+                    homePage.putExtra("event_planner_contact_no",plannerContactNumber);
+                    homePage.putExtra("event_planner_address",plannerAddress);
+                    homePage.putExtra("transaction_isActive", isActive);
+                    homePage.putExtra("calendarMark", transactionFinish);
                     startActivity(homePage);
                 }catch (JSONException x){
                     x.printStackTrace();
                 }
+                break;
             }
         }
     }
@@ -113,7 +158,7 @@ public class LoginPage extends AppCompatActivity implements SuperTask.TaskListen
         // $this->input->post(key)
         contentValues.put("username", this.username);
         contentValues.put("password", this.password);
-        contentValues.put("client_id", 1);
+        contentValues.put("client_id", String.valueOf(this.clientID));
         return contentValues;
     }
 }

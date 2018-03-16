@@ -34,6 +34,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class HomePage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SuperTask.TaskListener {
@@ -43,48 +44,37 @@ public class HomePage extends AppCompatActivity
     private ImageView m_imageView;
     private TextView userNameTV;
     private TextView userEmailTV;
-    private String firstname;
-    private String lastname;
-    private String fullname;
-    private String email;
-    private String contactNumber;
-    private String address;
 
+    //Event Planner
+    private String plannerFirstName;
+    private String plannerLastName;
+    private String plannerEmail;
+    private String plannerContactNumber;
+    private String plannerAddress;
+    private Integer calendarMark;
+
+    private String plannerFullname;
+    //Client
+    private String clientFirstName;
+    private String clientLastName;
+    private String clientEmail;
+    private String clientContactNumber;
+    private String clientAddress;
+    private String eventName;
+    private String isActive;
+
+    private String clientFullname;
+
+    //Client Information
     Bundle informationBundle = new Bundle();
+
+    //Transaction Status
+    Bundle transactionStatusBundle = new Bundle();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-
-        //Calendar
-        final TextView monthDisplay = findViewById(R.id.month_display);
-        compactCalendarView = findViewById(R.id.compactcalendar_view);
-        compactCalendarView.setFirstDayOfWeek(Calendar.MONDAY);
-        compactCalendarView.setUseThreeLetterAbbreviation(true);
-
-        //Do calendar shit here
-        compactCalendarView = findViewById(R.id.compactcalendar_view);
-        compactCalendarView.setFirstDayOfWeek(Calendar.MONDAY);
-        compactCalendarView.setUseThreeLetterAbbreviation(true);
-        m_imageView = findViewById(R.id.parentLogo);
-
-        final Event testEvent = new Event(Color.RED,1518227261000L, "Wedding Day!!!");
-        compactCalendarView.addEvent(testEvent);
-        final Event testEvent2 = new Event(Color.BLUE,1518256061000L, "Birth Day!!!");
-        compactCalendarView.addEvent(testEvent2);
-
-        compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
-            @Override
-            public void onDayClick(Date dateClicked) {
-                List<Event> events = compactCalendarView.getEvents(dateClicked);
-                Toast.makeText(HomePage.this,"Day was clicked: " + dateClicked + " with events " + events,Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onMonthScroll(Date firstDayOfNewMonth) {
-                monthDisplay.setText(simpleDateFormat.format(firstDayOfNewMonth));
-            }
-        });
 
         m_imageView = findViewById(R.id.parentLogo);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -114,11 +104,22 @@ public class HomePage extends AppCompatActivity
         //Get Intent Values
         Bundle loginValues = getIntent().getExtras();
         if (loginValues != null){
-            firstname = loginValues.getString("firstName");
-            lastname = loginValues.getString("lastName");
-            email = loginValues.getString("email");
-            contactNumber = loginValues.getString("contact");
-            address = loginValues.getString("address");
+
+            //Planner
+            plannerFirstName = loginValues.getString("event_planner_firstname");
+            plannerLastName = loginValues.getString("event_planner_lastname");
+            plannerEmail = loginValues.getString("event_planner_email");
+            plannerContactNumber = loginValues.getString("event_planner_contact_no");
+            plannerAddress = loginValues.getString("event_planner_address");
+            isActive = loginValues.getString("transaction_isActive");
+            calendarMark = loginValues.getInt("calendarMark");
+            //Client
+            clientFirstName = loginValues.getString("clientFirstName");
+            clientLastName = loginValues.getString("clientLastName");
+            clientEmail = loginValues.getString("clientEmail");
+            clientContactNumber = loginValues.getString("clientContactNumber");
+            clientAddress = loginValues.getString("clientAddress");
+            eventName = loginValues.getString("eventTitle");
         } else {
             //Toast.makeText(HomePage.this,"Tangina wala akong value",Toast.LENGTH_LONG).show();
         }
@@ -127,15 +128,54 @@ public class HomePage extends AppCompatActivity
         userEmailTV = headerView.findViewById(R.id.userEmail);
 
         //Assign the name and email
-        fullname = firstname + " " + lastname;
+        clientFullname = clientFirstName+ " " + clientLastName;
+        plannerFullname = plannerFirstName + " " + plannerLastName;
 
-        userNameTV.setText(fullname);
-        userEmailTV.setText(email);
+        //Toast.makeText(HomePage.this,String.valueOf(calendarMark),Toast.LENGTH_LONG).show();
 
-        informationBundle.putString("clientName",fullname);
-        informationBundle.putString("contactNumber",contactNumber);
-        informationBundle.putString("address",address);
+        userNameTV.setText(clientFullname);
+        userEmailTV.setText(clientEmail);
 
+        informationBundle.putString("clientName",clientFullname);
+        informationBundle.putString("contactNumber",clientContactNumber);
+        informationBundle.putString("address",clientAddress);
+
+        //Planner
+        transactionStatusBundle.putString("plannerName",plannerFullname);
+        transactionStatusBundle.putString("plannerAddress",plannerAddress);
+        transactionStatusBundle.putString("plannerContact",plannerContactNumber);
+        transactionStatusBundle.putString("eventStatus",isActive);
+
+        //Calendar
+
+        long milliSecondsEnd = TimeUnit.SECONDS.toMillis(Long.valueOf(String.valueOf(calendarMark)));
+
+        final TextView monthDisplay = findViewById(R.id.month_display);
+        compactCalendarView = findViewById(R.id.compactcalendar_view);
+        compactCalendarView.setFirstDayOfWeek(Calendar.MONDAY);
+        compactCalendarView.setUseThreeLetterAbbreviation(true);
+
+        //Do calendar shit here
+        compactCalendarView = findViewById(R.id.compactcalendar_view);
+        compactCalendarView.setFirstDayOfWeek(Calendar.MONDAY);
+        compactCalendarView.setUseThreeLetterAbbreviation(true);
+        m_imageView = findViewById(R.id.parentLogo);
+
+        final Event testEvent = new Event(Color.RED, milliSecondsEnd, eventName);
+        compactCalendarView.addEvent(testEvent);
+
+        compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
+            @Override
+            public void onDayClick(Date dateClicked) {
+                List<Event> events = compactCalendarView.getEvents(dateClicked);
+                Toast.makeText(HomePage.this,"Day was clicked: " + dateClicked + " with events " + events,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onMonthScroll(Date firstDayOfNewMonth) {
+                monthDisplay.setText(simpleDateFormat.format(firstDayOfNewMonth));
+            }
+        });
     }
 
     @Override
@@ -187,6 +227,7 @@ public class HomePage extends AppCompatActivity
         } else if (id == R.id.current_transaction_status) {
             TransactionStatus transactionStatus = new TransactionStatus();
             android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
+            transactionStatus.setArguments(transactionStatusBundle);
             manager.beginTransaction().replace(R.id.baseContent,transactionStatus).commit();
             getFragmentManager().popBackStackImmediate();
         } else if (id == R.id.client_information) {

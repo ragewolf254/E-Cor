@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import com.ragew.creativesolutions.e_cor.Utils.SuperTask;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +22,11 @@ public class TransactionStatus extends Fragment {
     private TextView plannerAddress;
     private TextView plannerContact;
     private TextView eventStatus;
+
+    private String fullName;
+    private String address;
+    private String contactNumber;
+    private String status;
 
     public TransactionStatus() {
         // Required empty public constructor
@@ -36,6 +43,20 @@ public class TransactionStatus extends Fragment {
         plannerAddress = view.findViewById(R.id.plannerAddress);
         plannerContact = view.findViewById(R.id.plannerContact);
         eventStatus = view.findViewById(R.id.eventStatus);
+
+        fullName = getArguments().getString("plannerName");
+        address = getArguments().getString("plannerAddress");
+        contactNumber = getArguments().getString("plannerContact");
+        status = getArguments().getString("eventStatus");
+
+        plannerName.setText(fullName);
+        plannerAddress.setText(address);
+        plannerContact.setText(contactNumber);
+        if (status.equals("0")){
+            eventStatus.setText("DONE");
+        } else {
+            eventStatus.setText("On Going");
+        }
 
         return view;
 
